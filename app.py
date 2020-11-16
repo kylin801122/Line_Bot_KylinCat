@@ -34,10 +34,16 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text=event.message.text+"測試測試")
-    line_bot_api.reply_message(event.reply_token, message)
+    user_message = event.message.text
+    if "貓咪" in user_message:
+        message = TextSendMessage(text="罐頭")
+        line_bot_api.reply_message(event.reply_token, message)
+    else:
+        message = TextSendMessage(text=user_message)
+        line_bot_api.reply_message(event.reply_token, message)
 
 
+# 主程式
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
