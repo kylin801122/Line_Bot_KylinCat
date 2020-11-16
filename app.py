@@ -38,8 +38,8 @@ def handle_message(event):
     if "聯成" in user_message:
         location = LocationSendMessage(title='Lcclocation', address='Lcc', latitude=25.011189,
                                        longitude=121.514564)
-        message = TextSendMessage(text=location)
-        line_bot_api.reply_message(event.reply_token, message)
+        # message = TextSendMessage(text=location)
+        line_bot_api.reply_message(event.reply_token, location)
     else:
         message = TextSendMessage(text=user_message)
         line_bot_api.reply_message(event.reply_token, message)
