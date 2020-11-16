@@ -35,15 +35,22 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
+    # 回傳google地圖
     if "聯成" in user_message:
         message = LocationSendMessage(title="聯成電腦",
                                       address="234新北市永和區永和路二段59號4樓",
                                       latitude=25.011189,
                                       longitude=121.514564)
         line_bot_api.reply_message(event.reply_token, message)
+    # 回傳特定訊息
     elif "貓咪" in user_message:
         message = TextSendMessage(text="給我罐頭 !")
         line_bot_api.reply_message(event.reply_token, message)
+    elif "圖片" in user_message:
+        message = ImageSendMessage(original_content_url='https://example.com/original.jpg',
+                                   preview_image_url='https://example.com/preview.jpg')
+        line_bot_api.reply_message(event.reply_token, message)
+    # 回傳使用者輸入內容
     else:
         message = TextSendMessage(text=user_message)
         line_bot_api.reply_message(event.reply_token, message)
