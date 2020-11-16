@@ -41,6 +41,9 @@ def handle_message(event):
                                       latitude=25.011189,
                                       longitude=121.514564)
         line_bot_api.reply_message(event.reply_token, message)
+    elif "貓咪" in user_message:
+        message = TextSendMessage(text="給我罐頭 !")
+        line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=user_message)
         line_bot_api.reply_message(event.reply_token, message)
