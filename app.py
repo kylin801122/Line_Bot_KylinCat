@@ -7,7 +7,9 @@ import os
 app = Flask(__name__)
 
 # Channel Access Token
-channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
+channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+　\
+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjN \
+thxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
 line_bot_api = LineBotApi(channel_access_token)
 
 # Channel Secret
@@ -36,10 +38,11 @@ def callback():
 def handle_message(event):
     user_message = event.message.text
     if "聯成" in user_message:
-        location = LocationSendMessage(title='Lcclocation', address='Lcc', latitude=25.011189,
-                                       longitude=121.514564)
-        # message = TextSendMessage(text=location)
-        line_bot_api.reply_message(event.reply_token, location)
+        message = LocationSendMessage(title="聯成電腦",
+                                      address="234新北市永和區永和路二段59號4樓",
+                                      latitude=25.011189,
+                                      longitude=121.514564)
+        line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=user_message)
         line_bot_api.reply_message(event.reply_token, message)
