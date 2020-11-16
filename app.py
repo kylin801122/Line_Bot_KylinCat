@@ -1,19 +1,19 @@
 from flask import Flask, request, abort
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
+import os
 
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('LfyK44+DVAkJJh25+0OdK063HZTZb/mZVmN8jheP06H+l9b43JsnFDyfnaSxt3x4se2SEQ1rTPUce+GftfWex9xnmbOAGX8CQpUjRlaXo3fu53uZ81EOjofi4Fmdo6iHWhgufWubcVVoJ5VT9NXTYgdB04t89/1O/w1cDnyilFU=')
+channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
+line_bot_api = LineBotApi(channel_access_token)
+
 # Channel Secret
-handler = WebhookHandler('78ccb64970eb7e8992fa6081a9cdda42')
+channel_secret = "db0b224884da4516785b84c0fe6da1a1"
+handler = WebhookHandler(channel_secret)
+
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -30,13 +30,16 @@ def callback():
         abort(400)
     return 'OK'
 
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
-import os
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
+
