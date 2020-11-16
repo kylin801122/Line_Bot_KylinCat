@@ -47,8 +47,8 @@ def handle_message(event):
         message = TextSendMessage(text="給我罐頭 !")
         line_bot_api.reply_message(event.reply_token, message)
     elif "圖片" in user_message:
-        message = ImageSendMessage(original_content_url='https://example.com/original.jpg',
-                                   preview_image_url='https://example.com/preview.jpg')
+        message = ImageSendMessage(original_content_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920',
+                                   preview_image_url='https://storage.googleapis.com/www-cw-com-tw/article/201810/article-5bd182cf13ebb.jpg')
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳使用者輸入內容
     else:
