@@ -7,11 +7,7 @@ import os
 app = Flask(__name__)
 
 # Channel Access Token
-channel_access_token = """
-YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+
-0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/
-RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+
-48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="""
+channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
 line_bot_api = LineBotApi(channel_access_token)
 
 # Channel Secret
@@ -39,8 +35,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
-    if "貓咪" in user_message:
-        message = TextSendMessage(text="罐頭")
+    if "聯成" in user_message:
+        location = LocationSendMessage(title='Lcclocation', address='Lcc', latitude=25.011189,
+                                       longitude=121.514564)
+        message = TextSendMessage(text=location)
         line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=user_message)
@@ -51,5 +49,3 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
-
