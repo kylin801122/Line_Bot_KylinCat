@@ -7,9 +7,7 @@ import os
 app = Flask(__name__)
 
 # Channel Access Token
-channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+　\
-0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjN \
-thxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
+channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
 line_bot_api = LineBotApi(channel_access_token)
 
 # Channel Secret
