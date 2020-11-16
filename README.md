@@ -176,14 +176,14 @@ line_bot_api.push_message(push_token, 訊息物件)
 修改範例程式碼中， handle_message() 方法內的程式碼，可實現多種功能
 
 ### TextSendMessage （文字訊息）
-![](https://i.imgur.com/LieCFAb.png =250x)
+![](https://i.imgur.com/LieCFAb.png)
 ```python
 message = TextSendMessage(text='Hello, world')
 line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### ImageSendMessage（圖片訊息）
-![](https://i.imgur.com/RaH7gqo.png =250x)
+![](https://i.imgur.com/RaH7gqo.png)
 ```python
 message = ImageSendMessage(
     original_content_url='https://example.com/original.jpg',
@@ -193,7 +193,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### VideoSendMessage（影片訊息）
-![](https://i.imgur.com/o6cvf3o.png =250x)
+![](https://i.imgur.com/o6cvf3o.png)
 ```python
 message = VideoSendMessage(
     original_content_url='https://example.com/original.mp4',
@@ -203,7 +203,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### AudioSendMessage（音訊訊息）
-![](https://i.imgur.com/w5szZag.png =250x)
+![](https://i.imgur.com/w5szZag.png)
 ```python
 message = AudioSendMessage(
     original_content_url='https://example.com/original.m4a',
@@ -213,7 +213,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### LocationSendMessage（位置訊息）
-![](https://i.imgur.com/tXE7Aus.png =250x)
+![](https://i.imgur.com/tXE7Aus.png)
 ```python
 message = LocationSendMessage(
     title='my location',
@@ -225,7 +225,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### StickerSendMessage（貼圖訊息）
-![](https://i.imgur.com/7x0mgK1.png =250x)
+![](https://i.imgur.com/7x0mgK1.png)
 ```python
 message = StickerSendMessage(
     package_id='1',
@@ -235,7 +235,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### ImagemapSendMessage （組圖訊息）
-![](https://i.imgur.com/MoSf2D6.png =250x)
+![](https://i.imgur.com/MoSf2D6.png)
 ```python
 message = ImagemapSendMessage(
     base_url='https://example.com/base',
@@ -260,7 +260,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### TemplateSendMessage - ButtonsTemplate （按鈕介面訊息）
-![](https://i.imgur.com/41lXWjP.png =250x)
+![](https://i.imgur.com/41lXWjP.png)
 ```python
 message = TemplateSendMessage(
     alt_text='Buttons template',
@@ -289,7 +289,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### TemplateSendMessage - ConfirmTemplate（確認介面訊息）
-![](https://i.imgur.com/U8NDhrt.png =250x)
+![](https://i.imgur.com/U8NDhrt.png)
 ```python
 message = TemplateSendMessage(
     alt_text='Confirm template',
@@ -312,7 +312,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### TemplateSendMessage - CarouselTemplate
-![](https://i.imgur.com/982Glgo.png =250x)
+![](https://i.imgur.com/982Glgo.png)
 ```python
 message = TemplateSendMessage(
     alt_text='Carousel template',
@@ -365,7 +365,7 @@ line_bot_api.reply_message(event.reply_token, message)
 ```
 
 ### TemplateSendMessage - ImageCarouselTemplate
-![](https://i.imgur.com/2ys1qqc.png =250x)
+![](https://i.imgur.com/2ys1qqc.png)
 ```python
 message = TemplateSendMessage(
     alt_text='ImageCarousel template',

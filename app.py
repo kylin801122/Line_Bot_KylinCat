@@ -46,9 +46,16 @@ def handle_message(event):
     elif "貓咪" in user_message:
         message = TextSendMessage(text="給我罐頭 !")
         line_bot_api.reply_message(event.reply_token, message)
+    # 回傳圖片訊息
     elif "圖片" in user_message:
+        # preview_image_url預覽縮圖、original_content_url實際開啟圖
         message = ImageSendMessage(original_content_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920',
                                    preview_image_url='https://storage.googleapis.com/www-cw-com-tw/article/201810/article-5bd182cf13ebb.jpg')
+        line_bot_api.reply_message(event.reply_token, message)
+    # 回傳影片訊息
+    elif "影片" in user_message:
+        message = VideoSendMessage(original_content_url='https://www.youtube.com/watch?v=aCoen6UtG1s',
+                                   preview_image_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920')
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳使用者輸入內容
     else:
