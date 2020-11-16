@@ -54,7 +54,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳影片訊息
     elif "影片" in user_message:
-        message = VideoSendMessage(original_content_url='GTA5.mp4',
+        message = VideoSendMessage(original_content_url='https://video-previews.elements.envatousercontent.com/h264-video-previews/4103404.mp4',
                                    preview_image_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920')
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳使用者輸入內容
