@@ -33,26 +33,26 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
-    # 使用者輸入"貓咪"，訊息為文字訊息
+    # 使用者輸入包含"貓咪"，訊息為文字訊息
     if "貓咪" in user_message:
         message = TextSendMessage(text="給我罐頭 !")
-    # 回傳圖片訊息
+    # 使用者輸入包含"圖片"，訊息為圖片訊息
     if "圖片" in user_message:
         # preview_image_url預覽縮圖、original_content_url實際開啟圖
-        message = ImageSendMessage(original_content_url="https://imgur.com/qTQOkol",
-                                   preview_image_url="https://imgur.com/qTQOkol")
-    # 使用者輸入"地圖"，訊息為google地圖
+        message = ImageSendMessage(original_content_url="https://i.imgur.com/qTQOkol.jpg",
+                                   preview_image_url="https://i.imgur.com/qTQOkol.jpg")
+    # 使用者輸入包含"影片"，訊息為影片訊息
+    if "影片" in user_message:
+        # preview_image_url影片預覽縮圖、original_content_url實際開啟影片
+        message = VideoSendMessage(original_content_url="https://i.imgur.com/nwide3z.mp4",
+                                   preview_image_url="https://i.imgur.com/qTQOkol.jpg")
+    # 使用者輸入包含"地圖"，訊息為google地圖
     if "地圖" in user_message:
         message = LocationSendMessage(title="猴硐貓村",
                                       address="224新北市瑞芳區侯硐",
                                       latitude=25.088678,
                                       longitude=121.827537)
-    # 回傳影片訊息
-    if "影片" in user_message:
-        # preview_image_url影片預覽縮圖、original_content_url實際開啟影片
-        message = VideoSendMessage(original_content_url="https://streamable.com/49mgnx",
-                                   preview_image_url="https://imgur.com/qTQOkol")
-    # 回傳使用者輸入內容
+    # 使用者輸入包含"喵"，訊息為回傳使用者輸入內容
     if"喵" in user_message:
         message = TextSendMessage(text=user_message)
     # 回傳訊息內容
