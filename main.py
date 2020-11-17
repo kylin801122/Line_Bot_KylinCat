@@ -6,12 +6,10 @@ import os
 
 app = Flask(__name__)
 
-# Channel Access Token
-channel_access_token = "YPXcebu/6k54mgrYRpbgQH+kgNyG7UEAUgLhRC7qqqZfsc+0CSKDiwnthHpV4JHX2GxEqPdchkFCzGBsuPc63t7oJD/RfliWSL60VfCzLo1kqQrVVAdCHjNthxqjWhQlVw2pdxA+48jWwz9jFPPWIAdB04t89/1O/w1cDnyilFU="
+# Token
+channel_access_token = "EP8rVpoA5OuSJ+KdvzijoN8HjLQdOpMBuUnxI0sNpI6WNXsgYHVo7goD6a1rbn+KOjnDD+ibrDNXvyj4MFdcoNXVyu2PdGj1cwZ7lBm/uyEcx3n+fLWxwg39xFlTN2aD6p0UkGuP/8kOHQ5LifhL3AdB04t89/1O/w1cDnyilFU="
 line_bot_api = LineBotApi(channel_access_token)
-
-# Channel Secret
-channel_secret = "db0b224884da4516785b84c0fe6da1a1"
+channel_secret = "0473c95b3ad046e263f9b2eb400ba5e2"
 handler = WebhookHandler(channel_secret)
 
 
@@ -43,22 +41,22 @@ def handle_message(event):
                                       longitude=121.514564)
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳特定訊息
-    elif "貓咪" in user_message:
+    if "貓咪" in user_message:
         message = TextSendMessage(text="給我罐頭 !")
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳圖片訊息
-    elif "圖片" in user_message:
+    if "圖片" in user_message:
         # preview_image_url預覽縮圖、original_content_url實際開啟圖
         message = ImageSendMessage(original_content_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920',
                                    preview_image_url='https://storage.googleapis.com/www-cw-com-tw/article/201810/article-5bd182cf13ebb.jpg')
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳影片訊息
-    elif "影片" in user_message:
+    if "影片" in user_message:
         message = VideoSendMessage(original_content_url='https://video-previews.elements.envatousercontent.com/h264-video-previews/4103404.mp4',
                                    preview_image_url='https://cdn.hk01.com/di/media/images/564720/org/7a5b31ccd89a2360794c1ef6bf54393f.jpg/0ws2YFTJcguqJ5hF1Hp3V8ELwZfAP_rMiLU2UYi1NlE?v=w1920')
         line_bot_api.reply_message(event.reply_token, message)
     # 回傳使用者輸入內容
-    else:
+    if"喵" in user_message:
         message = TextSendMessage(text=user_message)
         line_bot_api.reply_message(event.reply_token, message)
 
