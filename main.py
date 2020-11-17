@@ -33,13 +33,14 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
-    if ["MENU", "menu", "Menu", "目錄"] in user_message:
-        menu = """
-        目前指令有: 
-        貓咪、圖片
-        影片、地圖
-        """
-        message = TextSendMessage(text=menu)
+    for key in ["MENU", "menu", "Menu", "目錄"]:
+        if key in user_message:
+            menu = """
+            目前指令有: 
+            貓咪、圖片
+            影片、地圖
+            """
+            message = TextSendMessage(text=menu)
     # 使用者輸入包含"貓咪"，訊息為文字訊息
     if "貓咪" in user_message:
         message = TextSendMessage(text="給我罐頭 !")
