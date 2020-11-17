@@ -2,6 +2,7 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
+import os
 
 app = Flask(__name__)
 
@@ -49,8 +50,8 @@ def handle_message(event):
     # 回傳影片訊息
     if "影片" in user_message:
         # preview_image_url影片預覽縮圖、original_content_url實際開啟影片
-        message = VideoSendMessage(original_content_url='https://video-previews.elements.envatousercontent.com/h264-video-previews/4103404.mp4',
-                                   preview_image_url='https://imgur.com/qTQOkol')
+        message = VideoSendMessage(original_content_url="https://streamable.com/49mgnx",
+                                   preview_image_url="https://imgur.com/qTQOkol")
     # 回傳使用者輸入內容
     if"喵" in user_message:
         message = TextSendMessage(text=user_message)
