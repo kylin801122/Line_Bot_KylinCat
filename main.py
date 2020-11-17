@@ -35,11 +35,9 @@ def handle_message(event):
     user_message = event.message.text
     for key in ["MENU", "menu", "Menu", "目錄"]:
         if key in user_message:
-            menu = """
-            目前指令有: 
-            貓咪、圖片
-            影片、地圖
-            """
+            menu = """目前指令有:  
+貓咪、圖片
+影片、地圖"""
             message = TextSendMessage(text=menu)
     # 使用者輸入包含"貓咪"，訊息為文字訊息
     if "貓咪" in user_message:
@@ -51,7 +49,7 @@ def handle_message(event):
                                    preview_image_url="https://i.imgur.com/qTQOkol.jpg")
     # 使用者輸入包含"影片"，訊息為影片訊息
     if "影片" in user_message:
-        # preview_image_url影片預覽縮圖、original_content_url實際開啟影片
+        # preview_image_url影片預覽縮圖、original_content_url實際開啟影片(必須是mp4檔)
         message = VideoSendMessage(original_content_url="https://i.imgur.com/nwide3z.mp4",
                                    preview_image_url="https://i.imgur.com/qTQOkol.jpg")
     # 使用者輸入包含"地圖"，訊息為google地圖
@@ -61,7 +59,7 @@ def handle_message(event):
                                       latitude=25.088678,
                                       longitude=121.827537)
     # 使用者輸入包含"喵"，訊息為回傳使用者輸入內容
-    if"喵" in user_message:
+    if "喵" in user_message:
         message = TextSendMessage(text=user_message)
     # 回傳訊息內容
     line_bot_api.reply_message(event.reply_token, message)
